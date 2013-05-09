@@ -12,4 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
+//= require prettyphoto-rails
+//= require flexslider
 //= require_tree .

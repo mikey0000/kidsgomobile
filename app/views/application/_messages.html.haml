@@ -1,0 +1,20 @@
+.container
+  - flash.each do |name, msg|
+    %br/
+    - if msg.class == Array
+      - unless msg.empty?
+        .alert.alert-block{ class:"alert-#{name}"}
+          %button{type:"button", class:"close", "data-dismiss"=> "alert"} &times;
+          %h4= "#{name}".titlecase
+          %br/
+          %ul
+            - msg.uniq.each do |message|
+              %li= message
+    - else
+      - name = "info" if name == "notice"
+      - name = "error" if name == ":alert"
+
+      - unless msg.empty?
+        .alert.alert-block{ class:"alert-#{name}"}
+          %button{type:"button", class:"close", "data-dismiss"=> "alert"} &times;
+          = msg

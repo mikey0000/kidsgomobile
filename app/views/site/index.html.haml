@@ -1,0 +1,78 @@
+= render 'messages'
+%section#slider_wrapper
+  #main_flexslider.flexslider
+    %ul.slides
+      %li.item{:style => "background-image: url(images/2.jpg)"}
+        .container
+          .carousel-caption
+            %h1
+              Giving you
+              %strong insight
+              to your kids
+              %br/
+              and their smartphones!
+            %p.lead.inverse
+              %strong KidsGoMobile
+              helps you keep tabs on how your kids are using there smartphones.
+      %li.item{:style => "background-image: url(images/3.jpg)"}
+        .container
+          .carousel-caption
+            %h1
+              makes use of advanced
+              %strong threat
+              %br/
+              %strong detection
+              to keep your kids safe.
+            %p.lead.inverse
+              %strong KidsGoMobile
+              constantly analyses data from your kids and notifies you of any problems.
+      %li.item{:style => "background-image: url(images/1.jpg)"}
+        .container
+          .carousel-caption
+            %h1.inverse
+              %strong Find out
+              where they are.
+            %p.lead
+              %strong KidsGoMobile
+              can report back their last know whereabouts.
+#quicksignup
+  .container
+    .row
+      .span6
+        %h4 Get your free account now!
+      .span6.text-right
+        = form_for resource, :as => resource_name, :url => registration_path(resource_name),  :html => {class: "form-inline"} do |f|
+          = f.email_field :email, placeholder: "Email", required: ""
+          = f.password_field :password, placeholder: "Password", required: "Password", :class => "input-small"
+          %button.btn.btn-success{:type => "submit", style:"margin-top:0"} Get Started
+#main
+  %br/
+  %br/
+  .container
+    %section#features_teasers_wrapper
+      .row
+        .span4.feature_teaser
+          %img{:alt => "responsive", :src => "images/responsive.png"}/
+          %h3 Clean, Responsive Design
+          %p
+            A multipurpose but mainly
+            %strong business oriented
+            design, built to serve as a foundation for your web projects. Suspendisse nec risus fermentum sapien congue fermentum sed at lorem.
+        .span4.feature_teaser
+          %img{:alt => "responsive", :src => "images/git.png"}/
+          %h3 Based on Twitter Bootstrap
+          %p
+            The front-end development framework with a
+            = succeed "." do
+              %strong steep learning curve
+            It changes the way you develop sites. Suspendisse nec risus fermentum sapien congue fermentum sed at lorem.
+        .span4.feature_teaser
+          %img{:alt => "responsive", :src => "images/less.png"}/
+          %h3 Makes real use of {LESS}
+          %p
+            {re}
+            %strong start
+            comes with a style.less file that tries to use all the power of
+            = succeed "." do
+              %strong {less} and bootstrap combined
+            Suspendisse nec risus fermentum sapien congue fermentum sed at lorem.

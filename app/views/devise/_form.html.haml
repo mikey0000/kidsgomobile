@@ -1,0 +1,14 @@
+- flash[:error] = flash[:error].to_a.concat resource.errors.full_messages
+.container
+  %section#register
+    .hgroup
+      %h1 Register or Sign in
+      %ul.breadcrumb.pull-right
+        %li
+          %a{:href => root_path} Home
+          %span.divider /
+        %li.active Register or Sign in
+    = render "messages"
+    .row
+      = render 'signin'
+      = render 'signup'

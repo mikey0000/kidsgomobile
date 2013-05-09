@@ -1,0 +1,10 @@
+.signup.span6
+  = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+    %fieldset
+      .social_sign
+        %h3 Forgot your password?
+        %a.gp
+          %i.icon.icon-key
+      %p.sign_title Get password reset instructions sent to your email.
+      = f.email_field :email, class: "input-xlarge", placeholder: "Email", required: "", :autofocus => true
+      %button.btn.btn-primary.btn-large{:type => "submit"} Send me password reset instructions

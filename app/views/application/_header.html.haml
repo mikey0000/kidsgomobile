@@ -1,0 +1,33 @@
+%header
+  .container
+    .navbar
+      .navbar-inner
+        %a.brand{:href => root_path}
+          = image_tag "logo.png"
+        %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+          %span.nb_left.pull-left
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %span.nb_right.pull-right menu
+        .nav-collapse.collapse
+          %ul.nav.pull-right
+            %li{:class => current_page?(root_path) ? "active" : ""}
+              %a{:href => root_path} Home
+            %li{:class => current_page?(about_path) ? "active" : ""}
+              %a{:href => about_path} About Us
+            %li
+              %a{:href => "blog.html"} Blog
+            %li{:class => current_page?(new_contact_form_path) ? "active" : ""}
+              %a{:href => new_contact_form_path} Contact
+    #social_media_wrapper
+      %a{:href => "https://www.facebook.com/kidsgomobile", target: "blank"}
+        %i.icon.icon-facebook
+      %a{:href => "https://www.twitter.com/kidsgomobile", target: "blank"}
+        %i.icon.icon-twitter
+      %a{:href => "https://plus.google.com/109422041354755064604", target: "blank"}
+        %i.icon.icon-google-plus
+    #sign{:class => current_page?(new_user_session_path) ? "hidden" : ""}
+      %a{:href => new_user_session_path}
+        %i.icon.icon-user>
+        Register/Sign in

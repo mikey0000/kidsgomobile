@@ -1,0 +1,56 @@
+.signin.span6
+  - unless session.has_key? "devise.oauth_data"
+    .social_sign
+      %h3 Sign in with your social account
+      %a.fb{:href => user_omniauth_authorize_path(:facebook)}
+        %i.icon.icon-facebook
+      %a.tw{:href => user_omniauth_authorize_path(:twitter)}
+        %i.icon.icon-twitter
+      %a.gp{:href => user_omniauth_authorize_path(:google_oauth2)}
+        %i.icon.icon-google-plus
+    .or
+      .or_l
+      %span or
+      .or_r
+  - else
+    %fieldset
+      .social_sign
+        - case session["devise.oauth_data"]["provider"]
+          - when "facebook"
+            %h3= "Connect your Facebook with a site account"
+            %a.cl{href: cancel_user_registration_path}
+              %i.icon.icon-undo
+            %a.fb
+              %i.icon.icon-facebook
+          - when "twitter"
+            %h3= "Connect your Twitter with a site account"
+            %a.cl{href: cancel_user_registration_path}
+              %i.icon.icon-undo
+            %a.tw
+              %i.icon.icon-twitter
+          - when "google_oauth2"
+            %h3= "Connect your Google+ with a site account"
+            %a.cl{href: cancel_user_registration_path}
+              %i.icon.icon-undo
+            %a.gp
+              %i.icon.icon-google-plus
+    .or
+      .or_l
+      %span by
+      .or_r
+
+  %p.sign_title Signing in with your site account
+  .form
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+      = f.email_field :email, :autofocus => true, placeholder: "Email", class: "input-xlarge"
+      = f.password_field :password, placeholder: "Password", class: "input-xlarge"
+      .forgot
+        %label.checkbox
+          - if devise_mapping.rememberable?
+            %div
+            %label.checkbox
+              %input#user_remember_me{:type => "checkbox", name: "user[remember_me]"}/
+              Remember me
+        - if devise_mapping.recoverable? && controller_name != 'passwords'
+          = link_to "Forgot your password?", new_password_path(resource_name)
+      %button.btn.btn-primary.btn-large{:type => "submit"} Sign in

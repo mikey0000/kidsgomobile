@@ -26,6 +26,8 @@ gem 'unicorn'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem "omniauth-google-oauth2"
+gem 'omniauth-twitter'
 gem "cancan"
 
 # queue
@@ -43,6 +45,8 @@ gem 'compass-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'highcharts-rails'
+gem 'prettyphoto-rails'
+gem 'flexslider'
 
 # fb api
 gem "koala"
@@ -64,3 +68,5 @@ gem 'inherited_resources'
 
 # monitoring
 gem 'newrelic_rpm'
+
+gem 'mail_form'

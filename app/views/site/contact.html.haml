@@ -1,0 +1,44 @@
+.full_page_photo
+  %iframe{:frameborder => "0", :height => "400", :marginheight => "0", :marginwidth => "0", :scrolling => "no", :src => "http://maps.google.co.nz/?ie=UTF8&t=m&ll=-41.286836,174.774456&spn=0.022573,0.036564&z=14&output=embed", :width => "100%"}
+#main
+  .container
+    %section#contact
+      .hgroup
+        %h1 Contact us
+        %h2 Get in touch with our friendly support team!
+        %ul.breadcrumb.pull-right
+          %li
+            %a{:href => root_path} Home
+            %span.divider /
+          %li.active Contact
+      .row
+        .span4.office_address
+          %address
+            %strong KidsGoMobile, Inc.
+            %br/
+            795 Folsom Ave, Suite 600
+            %br/
+            Wellington, New Zealand
+          %address
+            %strong Email Us
+            %br/
+            %a{:href => "mailto:support@kidsgomobile.com"} support@kidsgomobile.com
+        .span8.contact_form
+          = semantic_form_for @contact_form, :url => { :action => "create" } do |f|
+            .row
+              .span4
+                %label Name
+                %input.span4{:type => "text"}/
+              .span4
+                %label E-mail
+                %input.span4{:type => "text"}/
+              .span8
+                %label Subject
+                %input.span8{:type => "text"}/
+              .span8
+                %label Message
+                %textarea.span8{:rows => "8"}
+              .span8
+                %a.btn.btn-large.btn-success
+                  %span Submit Message
+
