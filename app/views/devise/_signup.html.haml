@@ -6,11 +6,19 @@
         %a
           %i.icon.icon-user
       %p.sign_title Create one now, it's fast & free!
-      = f.email_field :email, class: "input-xlarge", placeholder: "Email", required: ""
-      = f.password_field :password, class: "input-xlarge", placeholder: "Password", required: "Password"
-      = f.password_field :password_confirmation, class: "input-xlarge", placeholder: "Password Confirmation", required: ""
+      .row-fluid
+        .span8.offset2
+          .row-fluid
+            = f.text_field :fname, class: "span6", placeholder: "First Name", required: ""
+            = f.text_field :lname, class: "span6", placeholder: "Last Name", required: ""
+          .row-fluid
+            = f.email_field :email, class: "span12", placeholder: "Email", required: ""
+          .row-fluid
+            = f.password_field :password, class: "span12", placeholder: "Password", required: "Password"
       %label.checkbox
         = f.check_box :terms
         I agree to the
         %a{:href => "/terms"} Terms of Use
+      %label.checkbox
+        =link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name)
       %button.btn.btn-success.btn-large{:type => "submit"} Create your account

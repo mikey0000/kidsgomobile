@@ -2,13 +2,29 @@
 .container
   %section#register
     .hgroup
-      %h1 Register or Sign in
+      %h1 Forgot Your Password
       %ul.breadcrumb.pull-right
         %li
           %a{:href => root_path} Home
           %span.divider /
+        %li
+          %a{:href => new_user_session_path} Register or Sign in
+          %span.divider /
         %li.active Forgot Your Password
     = render "messages"
     .row
-      = render 'reset'
-      = render 'signup'
+      .signup.span12
+        = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
+          %fieldset
+            .social_sign
+              %h3 Change your password.
+              %a.gp
+                %i.icon.icon-key
+            %p.sign_title Make sure it's something nobody else knows.
+            = f.hidden_field :reset_password_token
+            = f.password_field :password, :autofocus => true, placeholder: "Password"
+            %br/
+            = f.password_field :password_confirmation, placeholder: "Password Confirmation"
+            %br/
+            %button.btn.btn-primary.btn-large{:type => "submit"} Change my password
+

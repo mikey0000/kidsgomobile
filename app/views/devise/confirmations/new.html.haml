@@ -2,7 +2,7 @@
 .container
   %section#register
     .hgroup
-      %h1 Forgot Your Password
+      %h1 Resend confirmation instructions
       %ul.breadcrumb.pull-right
         %li
           %a{:href => root_path} Home
@@ -10,18 +10,19 @@
         %li
           %a{:href => new_user_session_path} Register or Sign in
           %span.divider /
-        %li.active Forgot Your Password
+        %li.active Resend confirmation instructions
     = render "messages"
     .row
       .signup.span12
-        = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+        = form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
           %fieldset
             .social_sign
-              %h3 Forgot your password?
+              %h3 Resend confirmation instructions
               %a.gp
                 %i.icon.icon-key
             %p.sign_title Get password reset instructions sent to your email.
-            = f.email_field :email, class: "input-xlarge", placeholder: "Email", required: "", :autofocus => true
-            %br/
-            %button.btn.btn-primary.btn-large{:type => "submit"} Send me password reset instructions
+            .row
+              = f.email_field :email, class: "input-xlarge", placeholder: "Email", required: "", :autofocus => true
+            .row
+              %button.btn.btn-primary.btn-large{:type => "submit"} Resend confirmation instructions
 

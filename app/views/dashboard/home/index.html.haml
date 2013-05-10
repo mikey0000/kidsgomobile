@@ -26,7 +26,7 @@
   .row-fluid.header
     .span8
       = image_tag "dashboard/contact-profile.png", :class => "avatar img-circle"
-      %h3.name Alejandra Galván Castillo
+      %h3.name= "Welcome #{current_user.fname}"
       %span.area= current_user.email
 #pad-wrapper
   / statistics chart built with jQuery Flot

@@ -38,10 +38,11 @@
 #quicksignup
   .container
     .row
-      .span6
+      .span4
         %h4 Get your free account now!
-      .span6.text-right
+      .span8.text-right
         = form_for resource, :as => resource_name, :url => registration_path(resource_name),  :html => {class: "form-inline"} do |f|
+          = f.text_field :fname, placeholder: "Name", required: "", :class => "input-small"
           = f.email_field :email, placeholder: "Email", required: ""
           = f.password_field :password, placeholder: "Password", required: "Password", :class => "input-small"
           %button.btn.btn-success{:type => "submit", style:"margin-top:0"} Get Started

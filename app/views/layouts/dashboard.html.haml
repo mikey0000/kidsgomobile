@@ -25,7 +25,7 @@
           %span.icon-bar
         .nav-collapse.collapse.visible-phone.mobile-menu
           %ul.nav
-            %li.active
+            %li{:class => current_page?(root_path) ? "active" : ""}
               %a{:href => root_path}
                 %i.icon-home
                 Home

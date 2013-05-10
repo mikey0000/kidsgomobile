@@ -6,9 +6,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :terms, :provider, :uid
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :terms, :provider, :uid, :fname, :lname
 
   validates :terms, :acceptance => {:accept => true}
+  validates_presence_of :fname
   # attr_accessible :title, :body
 
   devise :omniauthable, :omniauth_providers => [:facebook, :twitter, :google_oauth2]
@@ -27,6 +28,10 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
+  end
+
+  def name
+    "#{self.fname} #{self.lname}"
   end
 
 end

@@ -39,7 +39,7 @@
       %span by
       .or_r
 
-  %p.sign_title Signing in with your site account
+  %p.sign_title Sign in with your site account
   .form
     = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
       = f.email_field :email, :autofocus => true, placeholder: "Email", class: "input-xlarge"
