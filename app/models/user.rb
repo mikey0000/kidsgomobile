@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, :omniauth_providers => [:facebook, :twitter, :google_oauth2]
 
+  has_many :devices
+
   def self.find_for_oauth(auth)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
   end

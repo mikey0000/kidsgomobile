@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  device_id: 1
+  contact_id: 1
+  date: 2013-05-10 14:24:57
+  read: false
+  protocol: 1
+  status: 1
+  body: MyText
+
+two:
+  device_id: 1
+  contact_id: 1
+  date: 2013-05-10 14:24:57
+  read: false
+  protocol: 1
+  status: 1
+  body: MyText

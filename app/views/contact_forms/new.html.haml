@@ -28,10 +28,10 @@
             .row
               .span4
                 %label Name
-                = f.text_field :name, class: "input-large"
+                = f.text_field :name, class: "span4"
               .span4
                 %label E-mail
-                = f.text_field :email, class: "input-large"
+                = f.text_field :email, class: "span4"
               .span8
                 %label Message
                 = text_area_tag "contact_form[message]", nil, rows: "8", class: "span8"

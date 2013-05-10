@@ -1,0 +1,206 @@
+!!!
+%html
+  %head
+    %title KidsGoMobile | Dashboard
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+
+    = stylesheet_link_tag    "dashboard/dashboard", :media => "all"
+    / open sans font
+    %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800", :rel => "stylesheet", :type => "text/css"}/
+    / lato font
+    %link{:href => "http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic", :rel => "stylesheet", :type => "text/css"}/
+    /[if lt IE 9]
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  %body
+    / navbar
+    .navbar.navbar-inverse
+      .navbar-inner
+        %a.brand{:href => "index.html"}
+          = image_tag "dashboard/logo.png"
+        / shows same menu as sidebar but for mobile devices
+        %button.btn.btn-navbar.visible-phone{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :type => "button"}
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        .nav-collapse.collapse.visible-phone.mobile-menu
+          %ul.nav
+            %li.active
+              %a{:href => root_path}
+                %i.icon-home
+                Home
+            %li
+              %a{:href => "#"}
+                %i.icon-mobile-phone
+                Devices
+            %li
+              %a{:href => "#"}
+                %i.icon-pushpin
+                Notifications
+            %li
+              %a{:href => "#"}
+                %i.icon-cog
+                My Account
+            %li
+              = link_to "<i class=\"icon-signout\"></i> Sign Out".html_safe, destroy_user_session_path, :method => :delete, :class => "logout"
+        / end navbar for mobile devices
+        %ul.nav.pull-right.hidden-phone
+          %li
+            %input.search{:type => "text"}/
+          %li.dropdown
+            %a.dropdown-toggle.hidden-phone{"data-toggle" => "dropdown", :href => "#"}
+              My account
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => "#"} Account settings
+              %li
+                %a{:href => "#"} Billing &amp; Invoices
+              %li
+                %a{:href => "#"} Send feedback
+          %li#fat-menu.dropdown
+            = link_to "<span class=\"navbar_icon\"></span>".html_safe, destroy_user_session_path, :method => :delete, :class => "logout"
+    / end navbar
+    / sidebar
+    #sidebar-nav.hidden-phone
+      %ul#dashboard-menu
+        %li.active
+          .pointer
+            .arrow
+            .arrow_border
+          %a.tab1{:href => root_path}
+            %i.icon-home
+            %span Home
+        %li
+          %a.tab2{:href => "#"}
+            %i.icon-mobile-phone
+            %span Devices
+        %li
+          %a.tab2{:href => "#"}
+            %i.icon-pushpin
+            %span Notifications
+        %li
+          %a.tab9{:href => "#"}
+            %i.icon-cog
+            %span My Account
+        %li
+          = link_to "<i class=\"icon-signout\"></i><span>Sign Out</span>".html_safe, destroy_user_session_path, :method => :delete
+    / end sidebar
+    / main container
+    .content
+      .container-fluid
+        = yield
+    / scripts
+    = javascript_include_tag "dashboard/dashboard"
+    :javascript
+      $(function () {
+
+          // jQuery Knobs
+          $(".knob").knob();
+
+
+
+          // jQuery UI Sliders
+          $(".slider-sample1").slider({
+              value: 100,
+              min: 1,
+              max: 500
+          });
+          $(".slider-sample2").slider({
+              range: "min",
+              value: 130,
+              min: 1,
+              max: 500
+          });
+          $(".slider-sample3").slider({
+              range: true,
+              min: 0,
+              max: 500,
+              values: [ 40, 170 ],
+          });
+
+
+
+          // jQuery Flot Chart
+          var visits = [[1, 50], [2, 40], [3, 45], [4, 23],[5, 55],[6, 65],[7, 61],[8, 70],[9, 65],[10, 75],[11, 57],[12, 59]];
+          var visitors = [[1, 25], [2, 50], [3, 23], [4, 48],[5, 38],[6, 40],[7, 47],[8, 55],[9, 43],[10,50],[11,47],[12, 39]];
+
+          var plot = $.plot($("#statsChart"),
+              [ { data: visits, label: "Nexus 4"},
+               { data: visitors, label: "Galaxy SIII" }], {
+                  series: {
+                      lines: { show: true,
+                              lineWidth: 1,
+                              fill: true,
+                              fillColor: { colors: [ { opacity: 0.05 }, { opacity: 0.09 } ] }
+                           },
+                      points: { show: true,
+                               lineWidth: 2,
+                               radius: 3
+                           },
+                      shadowSize: 0,
+                      stack: true
+                  },
+                  grid: { hoverable: true,
+                         clickable: true,
+                         tickColor: "#f9f9f9",
+                         borderWidth: 0
+                      },
+                  legend: {
+                          // show: false
+                          labelBoxBorderColor: "#fff"
+                      },
+                  colors: ["#a7b5c5", "#30a0eb"],
+                  xaxis: {
+                      ticks: [[1, "JAN"], [2, "FEB"], [3, "MAR"], [4,"APR"], [5,"MAY"], [6,"JUN"],
+                             [7,"JUL"], [8,"AUG"], [9,"SEP"], [10,"OCT"], [11,"NOV"], [12,"DEC"]],
+                      font: {
+                          size: 12,
+                          family: "Open Sans, Arial",
+                          variant: "small-caps",
+                          color: "#9da3a9"
+                      }
+                  },
+                  yaxis: {
+                      ticks:3,
+                      tickDecimals: 0,
+                      font: {size:12, color: "#9da3a9"}
+                  }
+               });
+
+          function showTooltip(x, y, contents) {
+              $('<div id="tooltip">' + contents + '</div>').css( {
+                  position: 'absolute',
+                  display: 'none',
+                  top: y - 30,
+                  left: x - 50,
+                  color: "#fff",
+                  padding: '2px 5px',
+                  'border-radius': '6px',
+                  'background-color': '#000',
+                  opacity: 0.80
+              }).appendTo("body").fadeIn(200);
+          }
+
+          var previousPoint = null;
+          $("#statsChart").bind("plothover", function (event, pos, item) {
+              if (item) {
+                  if (previousPoint != item.dataIndex) {
+                      previousPoint = item.dataIndex;
+
+                      $("#tooltip").remove();
+                      var x = item.datapoint[0].toFixed(0),
+                          y = item.datapoint[1].toFixed(0);
+
+                      var month = item.series.xaxis.ticks[item.dataIndex].label;
+
+                      showTooltip(item.pageX, item.pageY,
+                                  item.series.label + " of " + month + ": " + y);
+                  }
+              }
+              else {
+                  $("#tooltip").remove();
+                  previousPoint = null;
+              }
+          });
+      });

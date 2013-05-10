@@ -5,7 +5,7 @@
 
 body {
   -webkit-font-smoothing: antialiased;
-  background: image_url("wild_oliva_light.png");
+  background: image_url("frontend/wild_oliva_light.png");
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -78,7 +78,7 @@ a {
 -------------------------------------------------------------- */
 
 header {
-  background: image_url("wild_oliva_light_head.png");
+  background: image_url("frontend/wild_oliva_light_head.png");
   border-bottom: solid 1px #cccccc;
   .container {
     position: relative;
@@ -171,7 +171,7 @@ header {
   margin-top: 22px;
   margin-right: 0;
   margin-left: 0;
-  background: image_url("wild_oliva_light.png");
+  background: image_url("frontend/wild_oliva_light.png");
   span {
     &.nb_left {
       padding: 5px;
@@ -190,21 +190,21 @@ header {
   text-align: center;
   a {
     margin: 0 0 6px 0px;
-    background: image_url("wild_oliva_light.png");
+    background: image_url("frontend/wild_oliva_light.png");
     &:hover, &:active {
-      background: image_url("wild_oliva_blue_light.png");
+      background: image_url("frontend/wild_oliva_blue_light.png");
       color: #ffffff;
       text-shadow: 0px 0px 0 transparent;
       border-bottom: solid 0px #0088cc;
     }
   }
   &.active a {
-    background: image_url("wild_oliva_dark.png");
+    background: image_url("frontend/wild_oliva_dark.png");
     color: #ffffff;
     text-shadow: 0px 0px 0 transparent;
     border-bottom: solid 0px #0088cc;
     &:hover {
-      background: image_url("wild_oliva_dark.png");
+      background: image_url("frontend/wild_oliva_dark.png");
       color: #ffffff;
       text-shadow: 0px 0px 0 transparent;
       border-bottom: solid 0px #0088cc;
@@ -231,7 +231,7 @@ header {
     display: block;
     float: left;
     margin: 0 3px;
-    background: image_url("wild_oliva_light.png");
+    background: image_url("frontend/wild_oliva_light.png");
     -webkit-border-radius: 500px;
     -moz-border-radius: 500px;
     border-radius: 500px;
@@ -246,7 +246,7 @@ header {
     &:hover, &:active {
       text-decoration: none;
       color: #ffffff;
-      background: image_url("wild_oliva_blue_light.png");
+      background: image_url("frontend/wild_oliva_blue_light.png");
     }
   }
 }
@@ -448,7 +448,7 @@ header {
 -------------------------------------------------------------- */
 
 #main {
-  background: image_url("wild_oliva_light.png");
+  background: image_url("frontend/wild_oliva_light.png");
 }
 
 section {
@@ -574,7 +574,7 @@ figure {
   text-align: center;
   background-color: #000000;
   background-color: #222222;
-  background: image_url("wild_oliva_dark.png");
+  background: image_url("frontend/wild_oliva_dark.png");
   color: #cccccc;
   padding: 40px;
   -webkit-transition: all 500ms linear;
@@ -816,7 +816,7 @@ ul#portfolio_filters {
   -moz-border-radius: 3px;
   border-radius: 3px;
   &:hover {
-    background: image_url("wild_oliva_blue_light.png");
+    background: image_url("frontend/wild_oliva_blue_light.png");
     a {
       color: #ffffff;
       text-decoration: none;
@@ -853,7 +853,7 @@ ul#portfolio_filters {
       -moz-border-radius: 3px;
       border-radius: 3px;
       i {
-        background: image_url("wild_oliva_blue_light.png");
+        background: image_url("frontend/wild_oliva_blue_light.png");
         -webkit-border-radius: 500px;
         -moz-border-radius: 500px;
         border-radius: 500px;
@@ -945,7 +945,7 @@ ul#portfolio_filters {
         line-height: 22px;
       }
       i {
-        background: image_url("wild_oliva_blue_light.png");
+        background: image_url("frontend/wild_oliva_blue_light.png");
         -webkit-border-radius: 500px;
         -moz-border-radius: 500px;
         border-radius: 500px;
@@ -1240,7 +1240,7 @@ footer {
   color: #ffffff;
   border-top: solid 2px #ffffff;
   background-color: #222222;
-  background: image_url("wild_oliva_dark.png");
+  background: image_url("frontend/wild_oliva_dark.png");
   a {
     &:hover, &:active {
       color: #cc0000;
@@ -1864,14 +1864,14 @@ blockquote {
   height: 51px;
   border: none;
   text-indent: 100%;
-  background: image_url("ui.totop.png") no-repeat left top;
+  background: image_url("frontend/ui.totop.png") no-repeat left top;
   opacity: 0.5;
   filter: alpha(opacity = 50);
   z-index: 2;
 }
 
 #toTopHover {
-  background: image_url("ui.totop.png") no-repeat left -51px;
+  background: image_url("frontend/ui.totop.png") no-repeat left -51px;
   width: 51px;
   height: 51px;
   display: block;
@@ -2222,7 +2222,7 @@ blockquote {
   display:inline;
 }
 #quicksignup {
-  background: image_url("wild_oliva_blue_light.png");
+  background: image_url("frontend/wild_oliva_blue_light.png");
   padding:20px 0;
   form {
     margin-bottom:0;

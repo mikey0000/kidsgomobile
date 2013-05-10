@@ -1,0 +1,42 @@
+/ upper main stats
+#main-stats
+  .row-fluid.stats-row
+    .span3.stat
+      .data
+        %span.number 2457
+        = "Message".pluralize(2457)
+      %span.date This Month
+    .span3.stat
+      .data
+        %span.number 3240
+        = "Call".pluralize(3240)
+      %span.date This Month
+    .span3.stat
+      .data
+        %span.number 322
+        = "App".pluralize(322)
+      %span.date Installed
+    .span3.stat.last
+      .data
+        %span.number= current_user.devices.count
+        = "Device".pluralize(current_user.devices.count)
+      %span.date Active
+/ end upper main stats
+#pad-wrapper.user-profile
+  .row-fluid.header
+    .span8
+      = image_tag "dashboard/contact-profile.png", :class => "avatar img-circle"
+      %h3.name Alejandra Galván Castillo
+      %span.area= current_user.email
+#pad-wrapper
+  / statistics chart built with jQuery Flot
+  .row-fluid.chart
+    %h4
+      Statistics
+    .btn-group.pull-right
+      %button.glow.left DAY
+      %button.glow.middle.active MONTH
+      %button.glow.right YEAR
+    .span12
+      #statsChart
+  / end statistics chart
