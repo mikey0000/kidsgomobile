@@ -4,7 +4,12 @@ Kgmapp::Application.routes.draw do
   end
 
   authenticated :user do
-    root :to => "dashboard/home#index"
+    scope :module => :dashboard do
+      root :to => "home#index"
+      resources :devices do
+        resources :messages
+      end
+    end
   end
   root :to => "site#index", :defaults => { :format => "html" }
 

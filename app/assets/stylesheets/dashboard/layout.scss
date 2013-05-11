@@ -202,10 +202,9 @@ input.search{
 		display: inline-block;
 		cursor: pointer;
 		position: relative;
-		border-top: 2px solid #fdfdfd;
+		border-bottom: 2px solid #fdfdfd;
 		margin: 0 -2px 0 -2px;
 		box-shadow: 1px 0px 0px 0px white;
-		font-style: italic;
 		color: #686c72;
 		font-size: 14px;
 		font-weight: 600;
@@ -216,7 +215,7 @@ input.search{
 		}
 		&.active{
 			background: #fff;
-			border-top-color: #3b9ff3;
+			border-bottom-color: #3b9ff3;
 			color: #3b9ff3;
 		}
 	}

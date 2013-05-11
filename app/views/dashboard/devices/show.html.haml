@@ -1,0 +1,33 @@
+= render 'device_menu'
+#main-stats
+  .row-fluid.stats-row
+    .span1.stat
+      .data
+        %span.number &nbsp;
+        &nbsp;
+      %span.date &nbsp;
+    .span2.stat
+      .data
+        %span.number &nbsp;
+        &nbsp;
+      %span.date &nbsp;
+    .span2.stat
+      .data
+        %span.number 3240
+        = "Contact".pluralize(3240)
+      %span.date Total
+    .span2.stat
+      .data
+        %span.number 3240
+        = "Thread".pluralize(3240)
+      %span.date Active
+    .span2.stat
+      .data
+        %span.number 322
+        = "Call".pluralize(3240)
+      %span.date This Week
+    .span2.stat
+      .data
+        %span.number 2,340
+        = "App".pluralize(3240)
+      %span.date Installed

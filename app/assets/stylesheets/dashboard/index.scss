@@ -4,19 +4,26 @@
 	margin-right: -20px;
 	background-color: #fdfdfd;
 	border-bottom: 1px solid #efeef3;
+    text-align: center;
 	.stats-row {
 		box-shadow: inset -1px 0px 5px 2px #f9f9f9;
 	}
 	.stat {
+    float:none;
+    display:inline-block;
 		text-align: right;
 		padding: 30px 0px 35px 0px;
-		border-right: 1px solid #e8e9ee;
+    border-right: 1px solid #e8e9ee;
+    border-left: 1px solid #e8e9ee;
 		position: relative;
 		box-shadow: 1px 0px 0px 0px white;
-
-		&.last {
-			border-right: 0px;
-		}
+    margin: 0 -2px 0 -2px;
+    &.last {
+      border-right: 0px;
+    }
+    &.first {
+      border-left: 0px;
+    }
 		.data {
 			color: #29323a;
 			text-transform: uppercase;

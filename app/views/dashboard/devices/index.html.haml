@@ -1,0 +1,43 @@
+#pad-wrapper.users-list
+  .row-fluid.header
+    %h3 Devices
+    %a.btn-flat.success.pull-right{:href => "new-user.html"}
+      %span +
+      ADD DEVICE
+  / Users table
+  .row-fluid.table
+    %table.table.table-hover
+      %thead
+        %tr
+          %th.span3
+            Name
+          %th.span3
+            %span.line>
+            Signed up
+          %th.span2
+            %span.line>
+            Threads
+            %span.muted Active
+          %th.span2
+            %span.line>
+            Calls
+            %span.muted This Month
+          %th.span2.align-right
+            %span.line>
+            Current Plan
+      %tbody
+        / row
+        - @devices.each do |device|
+          %tr{class: ('first' if @devices.first == device)}
+            %td
+              %img.img-circle.avatar.hidden-phone{:src => "assets/dashboard/contact-img.png"}/
+              %a.name{:href => device_path(device.id)}= device.name
+              %span.subtext= device.model
+            %td
+              = device.created_at.to_date.to_formatted_s(:long)
+            %td
+              1000
+            %td
+              1000
+            %td.align-right
+              %a{:href => "#"} alejandra@canvas.com

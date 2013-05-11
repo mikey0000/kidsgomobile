@@ -30,7 +30,7 @@
                 %i.icon-home
                 Home
             %li
-              %a{:href => "#"}
+              %a{:href => devices_path}
                 %i.icon-mobile-phone
                 Devices
             %li
@@ -64,17 +64,32 @@
     / sidebar
     #sidebar-nav.hidden-phone
       %ul#dashboard-menu
-        %li.active
-          .pointer
-            .arrow
-            .arrow_border
-          %a.tab1{:href => root_path}
-            %i.icon-home
-            %span Home
-        %li
-          %a.tab2{:href => "#"}
-            %i.icon-mobile-phone
-            %span Devices
+        - if current_page?(root_path)
+          %li.active
+            .pointer
+              .arrow
+              .arrow_border
+            %a.tab1{:href => root_path}
+              %i.icon-home
+              %span Home
+        - else
+          %li
+            %a.tab1{:href => root_path}
+              %i.icon-home
+              %span Home
+        - if request.fullpath.include? 'devices'
+          %li.active
+            .pointer
+              .arrow
+              .arrow_border
+            %a.tab1{:href => devices_path}
+              %i.icon-mobile-phone
+              %span Devices
+        - else
+          %li
+            %a.tab1{:href => devices_path}
+              %i.icon-mobile-phone
+              %span Devices
         %li
           %a.tab2{:href => "#"}
             %i.icon-pushpin

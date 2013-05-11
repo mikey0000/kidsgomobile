@@ -1,0 +1,19 @@
+#tabs-wrapper
+  .row-fluid
+    %a.span1.tab{:href => devices_path}
+      %i.icon-chevron-left
+    %a.span2.tab{:href => device_path(@device), :class => (current_page?(device_path(@device)) ? "active" : "")}
+      %i.icon-mobile-phone
+      ="#{@device.name}'s #{@device.model}"
+    %a.span2.tab
+      %i.icon-user &nbsp;
+      Contacts
+    %a.span2.tab{:href => device_messages_path(@device), :class => (current_page?(device_messages_path(@device)) ? "active" : "")}
+      %i.icon-comments &nbsp;
+      Threads
+    %a.span2.tab{:href => "#"}
+      %i.icon-phone &nbsp;
+      Calls
+    %a.span2.tab{:href => "#"}
+      %i.icon-beaker &nbsp;
+      Apps

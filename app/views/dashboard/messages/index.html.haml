@@ -1,0 +1,39 @@
+= render 'device_menu'
+#pad-wrapper.users-list
+  .row-fluid.header
+    %h3
+      %i.icon-comments-alt &nbsp;
+      Conversation Threads
+  / Users table
+  .row-fluid.table
+    %table.table.table-hover
+      %thead
+        %tr
+          %th.span3
+            Name
+          %th.span3
+            %span.line>
+            Signed up
+          %th.span2
+            %span.line>
+            Messages
+            %span.muted This Month
+          %th.span2
+            %span.line>
+            Calls
+            %span.muted This Month
+          %th.span2.align-right
+            %span.line>
+            Current Plan
+      %tbody
+        / row
+        - @messages.each do |message|
+          %tr{class: ('first' if @devices.first == device)}
+            %td
+              = device.created_at.to_date.to_formatted_s(:long)
+            %td
+              1000
+            %td
+              1000
+            %td.align-right
+              %a{:href => "#"} alejandra@canvas.com
