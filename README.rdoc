@@ -1,3 +1,5 @@
+[ ![Codeship Status for mikey0000/kidsgomobile](https://codeship.com/projects/5bbd4ed0-34a6-0132-14ef-2ed00cd927bb/status)](https://codeship.com/projects/40804)
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
